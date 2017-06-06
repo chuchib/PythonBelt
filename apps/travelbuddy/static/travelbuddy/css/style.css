@@ -1,0 +1,69 @@
+body{
+    padding: 50px 50px 50px 50px;
+    background-color: #173e43;
+}
+
+h1{
+    text-align: center
+}
+
+.container{
+    background-color: #3fb0ac;
+    padding:50px;
+    width: 300px;
+
+}
+
+#registration, #login {
+  padding: 20px;
+  border-color: black;
+  border-style: solid;
+  display: inline-block;
+  margin: 20px;
+  width: 500px;
+  vertical-align: top;
+}
+.messages {
+  margin: 0 22%;
+  margin-top: 20px;
+  color: red;
+}
+
+#welcome {
+  text-align: center;
+  font-size: 70px;
+}
+#userTrips {
+  border-color: black;
+  padding-bottom: 100px;
+  border-style: dotted;
+  margin-bottom: 50px;
+}
+
+#othersTrips {
+  border-color: black;
+  padding-bottom: 100px;
+  border-style: dotted;
+  margin-bottom: 50px;
+}
+
+#navbar {
+  color: black;
+}
+
+.others {
+  list-style-type: none;
+}
+
+#header{
+    background-color: #fae596;
+    padding:25px;
+    border-radius: 100px;
+}
+
+.main{
+    background-color: #dddfd4;
+    margin-top: 10px;
+    padding:10px;
+    border-radius: 100px;
+}

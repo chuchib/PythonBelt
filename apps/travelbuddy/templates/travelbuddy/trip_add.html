@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add Plan</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'travelbuddy/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <script src="{% static 'travelbuddy/jquery-2.2.3.js' %}"></script>
+  	<script src="{% static 'travelbuddy/js/jquery-ui.js' %}"></script>
+  	<script src="{% static 'travelbuddy/js/materialize.js' %}"></script>
+  </head>
+  <body>
+      <div class="container">
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="navbar-form navbar-right">
+            <li><a href="{% url 'travelbuddy:travels' %}">Home</a></li>
+            <li><a href="{% url 'login:logout' %}" class="button">Log out</a></li>
+          </ul>
+        </div>
+
+    </nav>
+      <div class="main">
+
+        <h1>Add a trip</h1>
+
+      </div>
+    </div>
+
+    <div id="user" class="container">
+      {% if messages %}
+      {% for message in messages%}
+      <p class="error">{{ message }}</p>
+      {% endfor %}
+      {% endif %}
+      <form action="{% url 'travelbuddy:create_trip' %}" method="POST" class="form-signin">
+        <label for="destination">Destination</label>
+        <input type="text" name="destination" placeholder="Destination" class="form-control" autofocus>
+        <label for="description">Description</label>
+        <textarea name="description" rows="4" cols="90" placeholder="Tell us about your trip."></textarea>
+        <label for="travelDateFrom">Travel Date From</label>
+        <input type="date" name="travelDateFrom" class="form-control">
+        <label for="travelDateTo">Travel Date To</label>
+        <input type="date" name="travelDateTo" class="form-control">
+        {% csrf_token %}
+        <button class="btn submit" value="add_trip" type="submit">Add</button>
+      </form>
+    </div> <!-- /container -->
+
+  </body>
+</html>

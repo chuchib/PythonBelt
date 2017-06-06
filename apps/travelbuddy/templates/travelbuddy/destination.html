@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Destination</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'travelbuddy/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <script src="{% static 'travelbuddy/jquery-2.2.3.js' %}"></script>
+  	<script src="{% static 'travelbuddy/js/jquery-ui.js' %}"></script>
+  	<script src="{% static 'travelbuddy/js/materialize.js' %}"></script>
+  </head>
+  <body>
+      <div class="container">
+        <div id="navbar">
+          <ul class="navbar-form navbar-right">
+            <li><a href="{% url 'travelbuddy:travels' %}">Home</a></li>
+            <li><a href="{% url 'login:logout' %}" class="button">Log out</a></li>
+          </ul>
+        </div>
+        {% if destination %}
+        <h3>{{ destination.destination }}</h3>
+        <p>Planned By: {{ destination.user_id.first_name }} {{ destination.user_id.last_name }}</p>
+        <p>Description: {{ destination.description }}</p>
+        <p>Travel Date From: {{ destination.travelDateFrom }}</p>
+        <p>Travel Date To: {{ destination.travelDateTo }}</p>
+        <h3>Other users joining the trip:</h3>
+        <ul class="others">
+        {% for other in userTrips %}
+        {% if other.trip_id.id == destination.id %}
+        {% if other.user_id.id != destination.user_id.id %}
+          <li>{{ other.user_id.first_name }} {{ other.user_id.last_name }}</li>
+          {% endif %}
+          {% endif %}
+        {% endfor %}
+        </ul>
+        {% else %}
+        <p>No destination found.</p>
+        {% endif %}
+    </div> <!-- /container -->
+
+  </body>
+</html>
